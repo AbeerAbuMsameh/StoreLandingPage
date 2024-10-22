@@ -1,0 +1,301 @@
+// General rules
+@import '../assets/globalRules';
+@import '../assets/fontSizes';
+
+// Include any default variable overrides here (though functions won't be available)
+@import '../assets/variables';
+
+// scss-docs-start import-stack
+// Configuration
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/variables';
+@import '../assets/overrides';
+@import '../../../node_modules/bootstrap/scss/maps';
+@import '../../../node_modules/bootstrap/scss/mixins';
+@import '../../../node_modules/bootstrap/scss/utilities';
+
+// Layout & components
+@import '../../../node_modules/bootstrap/scss/root';
+@import '../../../node_modules/bootstrap/scss/reboot';
+@import '../../../node_modules/bootstrap/scss/type';
+@import '../../../node_modules/bootstrap/scss/images';
+@import '../../../node_modules/bootstrap/scss/containers';
+@import '../../../node_modules/bootstrap/scss/grid';
+@import '../../../node_modules/bootstrap/scss/transitions';
+@import '../../../node_modules/bootstrap/scss/nav';
+@import '../../../node_modules/bootstrap/scss/navbar';
+@import '../../../node_modules/bootstrap/scss/close';
+@import '../../../node_modules/bootstrap/scss/offcanvas';
+@import '../../../node_modules/bootstrap/scss/accordion';
+@import '../../../node_modules/bootstrap/scss/dropdown';
+@import '../../../node_modules/bootstrap/scss/badge';
+@import '../../../node_modules/bootstrap/scss/modal';
+@import '../../../node_modules/bootstrap/scss/buttons';
+
+// Helpers
+@import '../../../node_modules/bootstrap/scss/helpers';
+
+// Utilities
+@import '../../../node_modules/bootstrap/scss/utilities/api';
+// scss-docs-end import-stack
+
+// Then add additional custom code here
+
+// Own components
+
+// Custom styling
+
+.header {
+  background: url('../imgs/hero-bg.webp') center center;
+  background-size: cover;
+  // .headerDiv {
+  //   padding-top: 55%;
+  //   @media (min-height: 1px) and (max-height: 702px) {
+  //     padding-top: 620px;
+  //   }
+  //   @media (max-width: 375px) {
+  //     padding-top: 340px;
+  //   }
+  //   @media (min-width: 376px) {
+  //     padding-top: 180px;
+  //   }
+  //   @media (min-width: 576px) {
+  //     padding-top: 150px;
+  //   }
+  //   @media (min-width: 768px) {
+  //     padding-top: 240px;
+  //   }
+  //   @media (min-width: 992px) {
+  //     padding-top: 530px;
+  //   }
+  //   @media (min-width: 376px) and (max-width: 992px) and (min-height: 720px) and (max-height: 721px) {
+  //     padding-top: 370px;
+  //   }
+  //   @media (min-width: 1024px) and (max-width: 1025px) and (min-height: 600px) and (max-height: 601px) {
+  //     padding-top: 650px;
+  //   }
+  //   @media (min-width: 820px) and (max-width: 821px) and (min-height: 1180px) and (max-height: 1181px) {
+  //     padding-top: 0px;
+  //   }
+  //   @media (min-width: 1042px) and (max-width: 1043px) and (min-height: 500px) and (max-height: 510px) {
+  //     padding-top: 72%;
+  //   }
+  // }
+
+  // &__img {
+  //   position: absolute;
+  //   max-width: 720.58px;
+  //   max-height: 679px;
+  //   right: 0;
+  //   top: -60px;
+  //   @media (max-width: 1170px) {
+  //     max-width: 100% !important;
+  //   }
+  // }
+  // .headerImg {
+  // }
+  .svgBox {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.positives {
+  // @media (min-width: 767px) {
+  //   margin-top: 130px !important;
+  // }
+  // @media (min-width: 811px) {
+  //   margin-top: 170px !important;
+  // }
+  // @media (min-width: 992px) {
+  //   margin-top: 330px !important;
+  // }
+  // @media (min-width: 1065px) {
+  //   margin-top: 480px !important;
+  // }
+  // @media (min-width: 1320px) {
+  //   margin-top: 520px !important;
+  // }
+
+  .positivesImg {
+    margin-top: -500px;
+    @media (min-width: 992px) and (min-height: 1px) and (max-height: 702px) {
+      display: none !important;
+    }
+  }
+
+  &__subTitle {
+    max-width: 887px;
+  }
+
+  &__boxSvg {
+    width: 60px;
+    height: 60px;
+  }
+
+  &__navTabs {
+    &--btns {
+      overflow: auto;
+      @media (min-width: 992px) {
+        width: 210px;
+        max-height: 500px;
+      }
+      button.nav-link {
+        height: 56px;
+        min-width: 177px;
+        max-width: max-content;
+      }
+    }
+    *::-webkit-scrollbar {
+      width: 2px;
+    }
+    *::-webkit-scrollbar-track {
+      background-color: rgba($primary, 0.25);
+    }
+  }
+}
+
+.features {
+  margin-top: 100px;
+  @media (min-width: 854px) {
+    margin-top: 150px;
+  }
+  &__subTitle {
+    max-width: 1006px;
+  }
+  &__box {
+    background-color: #f3f3fe35;
+  }
+}
+
+.reports {
+  margin-top: 100px;
+  @media (min-width: 854px) {
+    margin-top: 190px;
+  }
+  &__subTitle {
+    max-width: 1006px;
+  }
+  &__box {
+    svg {
+      path {
+        fill: $secondary !important;
+      }
+    }
+  }
+}
+
+.payment {
+  margin-top: 100px;
+  @media (min-width: 854px) {
+    margin-top: 220px;
+  }
+}
+
+.best {
+  margin-top: 100px;
+  .svgPath {
+    path {
+      fill: $secondary;
+    }
+  }
+}
+
+.faq {
+  margin-top: 176px;
+}
+
+.getStoreNow {
+  margin-top: 70px;
+  &__subtitles {
+    max-width: 1044px;
+  }
+}
+
+.partners {
+  margin-top: 100px;
+  @media (min-width: 854px) {
+    margin-top: 150px;
+  }
+}
+
+.swiper-wrapper {
+  .swiper-slide:last-of-type {
+    margin: 0 !important;
+  }
+}
+
+.partnersSwiper {
+  &__img {
+    max-width: 250px;
+    max-height: 60px;
+  }
+}
+
+.accordion {
+  &__container {
+    .accordion-button {
+      min-height: 112px;
+    }
+    .accordion-item {
+      box-shadow: 0px 0px 10px 0px #006dae1c !important;
+      &:has(.show) {
+        box-shadow: 0px 15px 60px 0px #006dae1a !important;
+      }
+    }
+    .accordion-item:last-of-type {
+      margin-bottom: 0 !important;
+    }
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinRev {
+  0% {
+    transform: rotate(60deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+.spinMoving {
+  position: relative;
+  animation: spin 10s infinite linear;
+}
+.cir1 {
+  height: 561px;
+  width: 561px;
+  border-style: dashed !important;
+}
+.spinMoving1 {
+  position: relative;
+  animation: spin 25s infinite linear;
+}
+.cir2 {
+  height: 450px;
+  width: 450px;
+  border-style: dashed !important;
+}
+.spinRevMoving2 {
+  position: relative;
+  animation: spinRev 18s infinite linear;
+}
+.cir3 {
+  height: 335px;
+  width: 335px;
+  border-style: dashed !important;
+}
+.spinMoving3 {
+  position: relative;
+  animation: spin 15s 0.3s infinite linear;
+}
+.cirImg {
+  width: 26px;
+  height: 26px;
+}

@@ -1,0 +1,35 @@
+@import '../assets/variables';
+
+.mainFooter {
+  background-color: #42538d;
+  &__img {
+    width: 100.64px;
+    height: 43px;
+  }
+  &__subTitles {
+    max-width: 700px;
+  }
+  &__rights {
+    &--boxLinkSocials {
+      width: 30px;
+      height: 30px;
+      &:hover {
+        transform: translateY(-4px);
+      }
+    }
+    &--boxLinkSocials:first-of-type {
+      background-color: #1877f2;
+    }
+    &--boxLinkSocials:nth-of-type(2) {
+      background-color: #fb3958;
+    }
+    &--boxLinkSocials:last-of-type {
+      background-color: #1da1f2;
+    }
+  }
+  &__navLinks {
+    &:hover {
+      color: $secondary !important;
+    }
+  }
+}

@@ -1,0 +1,199 @@
+// General rules
+@import '../assets/globalRules';
+@import '../assets/fontSizes';
+
+// Include any default variable overrides here (though functions won't be available)
+@import '../assets/variables';
+
+// scss-docs-start import-stack
+// Configuration
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/variables';
+@import '../assets/overrides';
+@import '../../../node_modules/bootstrap/scss/maps';
+@import '../../../node_modules/bootstrap/scss/mixins';
+@import '../../../node_modules/bootstrap/scss/utilities';
+
+// Layout & components
+@import '../../../node_modules/bootstrap/scss/root';
+@import '../../../node_modules/bootstrap/scss/reboot';
+@import '../../../node_modules/bootstrap/scss/type';
+@import '../../../node_modules/bootstrap/scss/images';
+@import '../../../node_modules/bootstrap/scss/containers';
+@import '../../../node_modules/bootstrap/scss/grid';
+@import '../../../node_modules/bootstrap/scss/transitions';
+@import '../../../node_modules/bootstrap/scss/nav';
+@import '../../../node_modules/bootstrap/scss/navbar';
+@import '../../../node_modules/bootstrap/scss/close';
+@import '../../../node_modules/bootstrap/scss/offcanvas';
+@import '../../../node_modules/bootstrap/scss/dropdown';
+@import '../../../node_modules/bootstrap/scss/buttons';
+@import '../../../node_modules/bootstrap/scss/forms/form-text';
+@import '../../../node_modules/bootstrap/scss/forms/form-control';
+@import '../../../node_modules/bootstrap/scss/forms/form-select';
+@import '../../../node_modules/bootstrap/scss/forms/form-check';
+
+// Helpers
+@import '../../../node_modules/bootstrap/scss/helpers';
+
+// Utilities
+@import '../../../node_modules/bootstrap/scss/utilities/api';
+// scss-docs-end import-stack
+
+// Then add additional custom code here
+
+// Own components
+
+// Custom styling
+.templates {
+  box-shadow: 8px 8px 24px 0px #0202460d;
+  .templatesTitle {
+    max-width: 908px;
+  }
+
+  .templatesPills {
+    &__btn {
+      width: max-content;
+      height: 53px;
+    }
+    // &__btn:disabled {
+    //   background-color: rgba($primary, 20%) !important;
+    // }
+    // &__btn[aria-selected='false'] {
+    //   background-color: rgba($primary, 75%) !important;
+    // }
+    &__btn[aria-selected='true'] {
+      color: #fff !important;
+    }
+  }
+
+  .templateGrid {
+    &__imgBox {
+      width: 195px;
+    }
+    &__box {
+      width: 195px;
+      height: 287px;
+      &--img {
+        width: 163px !important;
+        height: 148px !important;
+      }
+      &:hover {
+        box-shadow: 2px 2px 8px rgb(0 0 0 / 20%);
+      }
+      .btn-check[disabled] + .btn,
+      .btn-check:disabled + .btn {
+        opacity: 1;
+        background-color: #979797 !important;
+        border-color: #979797 !important;
+      }
+    }
+    &__box-choose,
+    &__box-preview {
+      width: 73px;
+      height: 40px;
+    }
+  }
+
+  .rocket-container {
+    width: 351px;
+    height: 269px;
+  }
+  .smoke {
+    opacity: 0;
+    animation: smoke-animation 2s linear infinite;
+  }
+  .smokeRocket {
+    animation: smoke-animation 1.2s linear infinite;
+  }
+  .spinSettings {
+    animation: spin 2s linear infinite;
+  }
+  .lineMovment {
+    animation: move 1.5s linear infinite;
+  }
+  .lineMovmentSmall {
+    animation: move 2s linear infinite;
+  }
+  *::-webkit-scrollbar {
+    height: 2px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: $secondary;
+  }
+  *::-webkit-scrollbar-track {
+    background-color: rgba($secondary, 0.25);
+  }
+  #scroll-left,
+  #scroll-right {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-50%);
+    @media (min-width: 1px) and (max-width: 390px) {
+      top: 195px;
+    }
+    @media (min-width: 391px) and (max-width: 820px) {
+      top: 166px;
+    }
+    @media (min-width: 820px) {
+      top: 141px;
+    }
+    @media (min-width: 992px) {
+      top: 146px;
+    }
+  }
+  #scroll-left {
+    left: 12px;
+    @media (min-width: 992px) {
+      left: 21px;
+    }
+  }
+  #scroll-right {
+    right: 12px;
+    @media (min-width: 992px) {
+      right: 21px;
+    }
+  }
+  &__content {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@keyframes smoke-animation {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}

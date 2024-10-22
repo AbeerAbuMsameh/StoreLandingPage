@@ -1,0 +1,164 @@
+{
+    "SUCCESS_GET": "Successfully get",
+    "SUCCESS_SEND": "Successfully send",
+    "SUCCESS": "Successfully",
+    "ERROR_GET": "Error get",
+    "ERROR_SEND": "Error send",
+    "YOUR_STORE_BLOCK": "You have banned this store",
+    "NO_RESULTS": "No results",
+    "SUCCESS_SUBSC": "Subscribed successfully",
+    "SUCCESS_REMOVE_FAVORIT": "Removed from favorites successfully",
+    "SUCCESS_ADD_FAVORIT": "Added to favorites successfully",
+    "REGISTERED_SUCCESSFULLY": "Account created successfully",
+    "REGISTER_FAILED": "Failed to create new account, try again",
+    "BLOCKED_DEVICE": "Account is blocked",
+    "REGISTRATION_CLOSED": "Registration closed by system admin",
+    "AUTH_CODE_ERROR": "Activation code error, try again",
+    "AUTH_CODE_SENT_BEFORE": "Auth code sent before, please check ful messages in inbox!",
+    "NO_AUTH_CODE": "Process denied, incorrect",
+    "UNAUTHORISED": "Unauthorised, please login",
+    "IN_ACTIVE_ACCOUNT": "Account must be activated to enable login!",
+    "ERROR_CREDENTIALS": "Error login credentials, check and try again",
+    "LOGGED_OUT_SUCCESSFULLY": "Logged out successfully",
+    "LOGGED_OUT_FAILED": "Logout failed, please try again",
+    "LOGGED_IN_SUCCESSFULLY": "Great, Logged in successfully",
+    "LOGIN_IN_FAILED": "Login failed, try again!",
+    "NO_ACCOUNT": "Employee ID not registered!",
+    "AUTH_CODE_SENT": "Auth code sent successfully",
+    "ACCOUNT_EXIST": "Email registered before!",
+    "MOBILE_EXIST": "Mobile registered before!",
+    "SUCCESS_AUTH": "Account activated successfully",
+    "FAILED_AUTH": "Account activation failed, try again",
+    "VERIFIED_BOFORE": "Account has been verified before, rejected action!",
+    "AUTH_CODE_RESENT": "Account has been verified before, rejected action!",
+    "NOT_VERIFIED": "Account must verified to enable any action on it.",
+    "SUCCESS_CHECKED": "Successfully Checked",
+    "FAILD_CHECKED": "Faild Checked",
+    "SUCCESS_CHANGED": "Change completed successfully",
+    "FORGET_PASSWORD_SUCCESS": "Password reset code sent successfully",
+    "FORGET_PASSWORD_FAILED": "Failed to sent password reset code!",
+    "PASSWORD_RESET_CODE_CORRECT": "Correct password reset code, set new password",
+    "PASSWORD_RESET_CODE_ERROR": "Password reset code error, try again",
+    "NO_PASSWORD_RESET_CODE": "No forget password request exist, process denied!",
+    "PASS_RESET_CODE_SENT_BEFORE": "Password reset code sent before, please check ful messages in inbox!",
+    "RESET_PASSWORD_SUCCESS": "Reset password success",
+    "RESET_PASSWORD_FAILED": "Failed to reset password!",
+    "CHANGE_PASSWORD_SUCCESS": "Password changed successfully",
+    "CHANGE_PASSWORD_FAILED": "Change password failed, try again!",
+    "CONTACT_US_REQUEST_SUCCESS": "Contact request sent successfully, thanks",
+    "CONTACT_US_REQUEST_FAILED": "Failed to send contact request, try again",
+    "USER_UPDATED_SUCCESS": "Profile updated successfully",
+    "USER_UPDATED_FAILED": "Profile update failed!, try again",
+    "PASSWORD_SENT": "Password sent successfully, use it to login to your account",
+    "PASSWORD_SEND_FAILED": "Failed to sent password, please try again",
+    "PASSWORD_ALREADY_SET": "Password has been set before!",
+    "PASSWORD_NOT_SET": "Please request your account password!",
+    "MULTI_ACCESS_ERROR": "It is not possible to log in to the same account from two devices at once!",
+    "SECURITY_CHECK_SUCCESS": "Your status has been sent successfully, keep safe",
+    "SECURITY_CHECK_DUPLICATE": "Your status has been sent before, keep safe",
+    "SECURITY_CHECK_FAILED": "There was a malfunction in submitting your case, please try again",
+    "CREATE_SUCCESS": "Created successfully",
+    "CREATE_FAILED": "Create failed, please try again",
+    "DELETE_SUCCESS": "Deleted successfully",
+    "DELETE_FAILED": "Delete failed, please try again",
+    "UPDATE_SUCCESS": "Updated successfully",
+    "UPDATE_FAILED": "Delete failed, please try again",
+    "NO_ACCESS_PERMISSION": "You dont have access permission to this component",
+    "UN_AUTHORIZED_ACTION": "You are not authorized to perform this action",
+    "NOT_FOUND": "Object not fount",
+    "FOUND": "Object is fount",
+    "FAVORITE_ADD": "Product has been added to your favorites successfully",
+    "FAVORITE_REMOVED": "Product has been removed from your favorites successfully",
+    "FAVORITE_FAILED": "Favorite process failed, try again",
+    "RATE_ADD": "Product has been rated successfully",
+    "RATE_UPDATED": "Product rate has been updated successfully",
+    "RATE_FAILED": "Product rating failed, try again",
+    "ORDER_CREATED": "Your request has been sent successfully, and you will be notified in every renewal in its own status",
+    "ORDER_FAILED": "There was an error creating the request, try again",
+    "ERROR_FIAT_DISCOUNT" : "البطاقة خاصتك لاتتطابق مع بطاقات المتجر المصدرة ",
+    "SUCCESS_FIAT_DISCOUNT" : "تم تسجيل البطاقة خاصتك بنجاح",
+    "FIAT_DISCOUNT_EXISTS" : "Fiat Discount Already Stored",
+    "SUCCESS_SET_DEFUALT" : "تم تعينه كأفتراضي",
+    "ERROR_SET_DEFUALT" : "حدث خطأ اثناء التعيين ، حاول مجدداً",
+    "CANNOT_ADD_SELT" : "لايمكنك اضافت نفسك",
+    "FRIEND_EXISTS" : "الصديق تم اضافته من قبل",
+    "IS_EXISTS" : "العنصر موجود بالفعل",
+    "SUCCESS_QAREN" : "تمت المقارنة بنجاح ، اطلع على النتائح",
+    "SOON" : "قريبا لم يتم تفعيل الخدمة بعد",
+    "FAILD_TRANS" : "قريبا ، لم يتم ترجمة البيانات بعد",
+    "NO_OFFER" : "لايوجد اي عرض على هذا المنتج",
+    "SUCCESS_SAVE_IN_OFFER_CALENDAR" : "تم حفظها في تقويم الاسعار الخاص بك",
+    "PRODUCT_EXISTS" : "المنتج موجود بالفعل",
+    "SOME_ERROR" : "عذراً , حدث خطأ أثناء تنفيذ العملية , تواصل معنا لحل المشكلة",
+    "DELETE_ERROR" : "لم يتم حذف المنتج ، حاول من جديد",
+    "SUCCESS_MOVE_PRODUCT" : "تم نقل المنتج بنجاح",
+    "TYPE_QS_ERROR" : "نوع السؤال غير صحيح",
+    "SUCCESS_ADD_CART" : "تم الاضافة الى السلة بنحاح",
+    "SUCCESS_SAVE" : "تم الحفظ بنجاح",
+    "ERROR_SAVE" : "حدث خطأ أثناء الحفظ حاول من جديد",
+    "NO_SUPPORT_HOUR" : "لم يحدد أوقات للدعم بعد",
+    "SUCCESS_CONFIRM_ORDER" : "تم اتمام الطلب بنجاح",
+    "ERROR_CONFIRM_ORDER" : "حدث خطأ اثناء اتمام الطلب ، حاول من جديد",
+    "USER_EXISTS" : "المستخدم موجود بالفعل",
+    "POINT_NOT_ENOUGH" : "نقاطك غير كافية",
+    "ERROR_ENTER_DATA" : "حدث خطأ ما ، تأكد من صحة البيانات",
+    "CART_IS_EMPTY" : "السلة فارغة",
+    "PROMO_NOT_THIS_STORE" : "كود الخصم غير تابع لهذا المتجر",
+    "SUCCESS_INCRESE" : "تم زيادة الكمية",
+    "OVER_QTY" : "الكمية غير كافية في المتجر",
+    "CANOT_CANCEL_ORDER" : "لايمكن الغاء الطلب الان ، لقد وافق عليه المتجر",
+    "SUCCESS_CACEL_ORDER" : "تم الغاء الطلب بنجاح",
+    "SUCCESS_RATE" : "تم ارسال التقيم ",
+    "ERROR_RATE" : "لم يتم ارسال التقيم ، حاول في وقت لاحق",
+    "UPGRADE_PLAN" : "يجب عليك ترقية الخطة الخاصة بك",
+    
+    "SEND_SUCCESS" : "تم الارسال بنجاح",
+    "SEND_FAILED" : "حصل خطأ أثناء الارسال ",
+    "USER_NOT_FOUND" : "المستخدم غير موجود",
+    "NO_SUPPORT_HOURE" : "لايوجد ساعات عمل مححدة بعد لدولتك",
+    "BLOCK_ACCOUNT": "الحساب محظور",
+    "ERROR": "لم تتم العملية الحالية",
+    "SUCCESS_BLOCK_STORE" : "Successfully blocked",
+    "ADD_TO_FAVORITE_TITLE" : "أضف المنتج الى المفضلة",
+    "ADD_TO_FAVORITE_BODY" : "نوصي لك بهذا المنتج لاضافته للمفضلة ",
+    "ADD_CART" : "اضافة الى السلة",
+    "ADD_CART_BODY" : "نوصي لك بهذا المنتج",
+    "OFFER_CALENDER_BODY" : "تحقق من سعر المنتجات التي اضفتها لجدولة العروض في حسابك",
+    "CANOT_CANCEL_ORDER_DATE" : "لا يمكنك الغاء الطلب فقد مضى وقت على طلبه",
+    "SUCCESS_COMPLETE_AND_CLOSE_ORDER" : "تم اتمام الطلب واغلاقه",
+    "EXISTS_RATE" : "قمت بالتقيم بالفعل",
+    "RE_QAREN_ADDED_TO_CART" : "تم اضافة أفضل المقارنات في السلة",
+    "RE_QAREN_FAILD" : "فشلت اعادة المقارنة",
+    "RE_QAREN_EMPTY" : "لم تتم مقارنة المنتج من قبل"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+}

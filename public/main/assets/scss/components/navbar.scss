@@ -1,0 +1,66 @@
+@import '../assets/variables';
+
+.mainNavbarScrolled {
+  background-color: #fff;
+}
+
+.homePageScrollLinks {
+  color: #000 !important;
+  &:hover {
+    color: $primary !important;
+  }
+}
+
+.mainNavbar {
+  &__logo {
+    width: 100.64px;
+    height: 43px;
+  }
+  .navbar-toggler {
+    padding: 2px 5px;
+  }
+  &__offcanvas {
+    @media (max-width: 992px) {
+      max-width: 400px !important;
+    }
+    @media (max-width: 500px) {
+      max-width: 95% !important;
+    }
+    &--btn-close {
+      position: absolute;
+      top: 23px;
+    }
+  }
+  &__menuLink {
+    font-weight: 500 !important;
+    transition: all 0.3s ease-in-out !important;
+    border-bottom: 1px solid #fff;
+    &:hover {
+      color: $primary !important;
+    }
+    @media (min-width: 768px) {
+      &:hover {
+        color: $primary !important;
+      }
+    }
+  }
+  &__LangMenu {
+    min-width: 100px;
+  }
+  .dropdownLang {
+    min-width: 140px;
+    height: 42px;
+    border: 1px solid $ef;
+  }
+  .dropdownLang ~ .btn {
+    width: 100%;
+    @media (min-width: 992px) {
+      width: auto;
+    }
+  }
+  @media (max-width: 992px) {
+    .colorLinksUnderLg {
+      color: $primary !important;
+    }
+  }
+}

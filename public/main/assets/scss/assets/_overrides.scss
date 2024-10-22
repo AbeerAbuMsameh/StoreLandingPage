@@ -1,0 +1,128 @@
+$line-height-base: 1.5;
+$line-height-sm: 1.25;
+$line-height-lg: 2;
+$table-striped-bg: $f9f9fb;
+$table-cell-padding-y: 1.1rem;
+$table-border-width: 0;
+$table-cell-vertical-align: middle;
+$table-th-font-weight: 500;
+$btn-border-radius: 8px;
+
+$utilities: ();
+$utilities: map-merge(
+  (
+    'opacity': (
+      property: opacity,
+      values: (
+        10: 0.1,
+        25: 0.25,
+        40: 0.4,
+        50: 0.5,
+        70: 0.7,
+        75: 0.75,
+        80: 0.8,
+        100: 1,
+      ),
+    ),
+    'bg-opacity': (
+      css-var: true,
+      class: bg-opacity,
+      values: (
+        10: 0.1,
+        15: 0.15,
+        25: 0.25,
+        50: 0.5,
+        75: 0.75,
+        100: 1,
+      ),
+    ),
+    'line-height': (
+      property: line-height,
+      class: lh,
+      values: (
+        1: 1,
+        sm: $line-height-sm,
+        base: $line-height-base,
+        lg: $line-height-lg,
+        40: 40px,
+        75: 75px,
+      ),
+    ),
+  ),
+  $utilities
+);
+
+$theme-colors: (
+  'primary': $primary,
+  'secondary': $secondary,
+  'success': $success,
+  'info': $info,
+  'warning': $warning,
+  'danger': $danger,
+);
+
+// scss-docs-start spacer-variables-maps
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  4: $spacer * 0.25,
+  5: $spacer * 0.3125,
+  7: $spacer * 0.4375,
+  8: $spacer * 0.5,
+  9: $spacer * 0.5625,
+  10: $spacer * 0.625,
+  11: $spacer * 0.6875,
+  13: $spacer * 0.8125,
+  15: $spacer * 0.9375,
+  20: $spacer * 1.25,
+  25: $spacer * 1.5625,
+  22: $spacer * 1.375,
+  30: $spacer * 1.875,
+  32: $spacer * 2,
+  40: $spacer * 2.5,
+  44: $spacer * 2.75,
+  50: $spacer * 3.125,
+  60: $spacer * 3.75,
+  70: $spacer * 4.375,
+  80: $spacer * 5,
+  90: $spacer * 5.625,
+  100: $spacer * 6.25,
+  110: $spacer * 6.875,
+  120: $spacer * 7.5,
+  130: $spacer * 8.125,
+  150: $spacer * 9.2,
+  170: $spacer * 10.625,
+  210: $spacer * 13.125,
+  250: $spacer * 15.625,
+);
+// scss-docs-end spacer-variables-maps
+
+.bg-opacity-70 {
+  --bs-bg-opacity: 0.7 !important;
+}
+.text-gray-600 {
+  color: $gray-600;
+}
+
+.form-floating {
+  > label {
+    top: -3px !important;
+  }
+}
+
+.btn-lg {
+  height: 48px;
+}
+.btn-sm {
+  height: 38px;
+}
+
+// Scroll bar
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 3px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: $primary;
+  border-radius: 2px;
+}
