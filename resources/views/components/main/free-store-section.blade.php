@@ -1,16 +1,17 @@
 @props(['title','link', 'description','button_name'])
 
-<section class="getStoreNow mt-70 mt-md-130 bg-f9 py-70">
-    <div class="container containerEdit">
-        <p class="fw-medium fs-60px mb-15 text-center" data-aos="fade-up">
-            {{$title}}
-        </p>
-        <p class="fs-24px text-center mb-30 getStoreNow__subtitles mx-auto" data-aos="fade-up">
-            {{$description}}
-        </p>
+<section class="get-store-now bg-f9 py-70">
+    <div class="container container-edit">
+        <header class="text-center" data-aos="fade-up">
+            <h2 class="fw-medium fs-40px mb-15"> {{$title}}</h2>
+            <p class="fs-18px fw-normal lh-lg opacity-80 mb-50 reports__subTitle mx-auto" data-aos="fade-up" data-aos-delay="200">
+                {{$description}}
+            </p>
+        </header>
+
         <div class="d-flex justify-content-center" data-aos="fade-up">
-            <a href="{{ $link }}" type="button"
-               class="primaryBtnHoverEffect transition-300ms text-decoration-none btn btn-primary text-capitalize m-0 py-15 px-25 rounded-8px">{{$button_name}}
+            <a href="{{ $link }}" class="btn btn-primary primary-btn-hover-effect transition-300ms text-capitalize py-15 px-25 rounded-8px text-decoration-none">
+                {{$button_name}}
             </a>
         </div>
     </div>

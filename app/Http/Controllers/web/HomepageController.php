@@ -34,9 +34,9 @@ class HomepageController extends Controller
     {
 
         $sections = HomepageSection::with(['icons' => function ($query) {
-            $query->where('status', 1);
+            $query->where('status', 1)->orderBy('sort');
         }])->orderBy('sort')->where('status', 1)->get();
-        $template_category = TemplateCategory::where('status', '1')->where('appear_on_home', '1')->get();
+        $template_category = TemplateCategory::where('status', 1)->where('appear_on_home', 1)->get();
         $success_partner = SuccessPartner::where('status', 1)->get();
         $faqs_odd = FAQ::where('status', 1)->whereRaw('MOD(id, 2) != 0')->get();
         $faqs_even = FAQ::where('status', 1)->whereRaw('MOD(id, 2) = 0')->get();

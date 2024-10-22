@@ -1,5 +1,4 @@
-<!-- resources/views/components/features-section.blade.php -->
-@props(['title', 'description','image','image_alt'])
+@props(['title', 'description', 'template'])
 
 <section class="positives container containerEdit mt-70">
     <h2 class="fw-medium fs-40px mt-50 mt-md-100 mt-lg-170 mb-15 text-center" data-aos="fade-up">
@@ -7,51 +6,30 @@
     </h2>
     <h3 class="fs-18px fw-normal lh-lg opacity-80 mb-50 text-center positives__subTitle mx-auto" data-aos="fade-up" data-aos-delay="200">
         {{ $description }}
-
     </h3>
-    <div class="positivesImg d-none d-lg-block" data-aos="fade-up" data-aos-delay="400">
-        <img class="img-fluid w-100" src="{{ $image }}" alt="{{ $image_alt }}" width="1100" height="780"/>
-    </div>
 
-    <div class="grid column-gap-sm-35px row-gap-sm-36px">
-        <div class="g-col-12 g-col-sm-6 g-col-xl-4" data-aos="fade-right">
-            <div class="features__box rounded-16px card-shadow-hover rounded-24px transition-300ms h-100 d-flex flex-column align-items-center align-items-xl-start justify-content-center">
-                <img class="img-fluid" src="{{asset('./main/assets/imgs/features-box-1.webp')}}" alt="features-box-1" width="366" height="197"/>
-                <div class="p-25">
-                    <p class="fw-medium fs-18px mb-10 text-center text-xl-start">
-                        Connect with customers
-                    </p>
-                    <p class="fs-14px mb-0 text-center text-xl-start">
-                        Communicate with your customers directly through the platform.
-                    </p>
-                </div>
+    <div class="positives__navTabs">
+        <div class="d-flex flex-column flex-lg-row gap-30">
+            <div class="positives__navTabs--btns flex-shrink-0 nav flex-row flex-lg-column flex-nowrap pb-15 pb-lg-0 pe-lg-32 nav-pills me-3 gap-30"
+                 id="positives-pills-tab" role="tablist" aria-orientation="vertical">
+                @foreach($template as $key => $category)
+                    <button class="nav-link flex-shrink-0 fs-15px fw-medium p-16 rounded-16px border border-1 {{ $key == 0 ? 'active' : 'btn btn-outline-primary' }}"
+                            id="positives-pills-{{ $category->id }}-tab" data-bs-toggle="pill"
+                            data-bs-target="#positives-pills-{{ $category->id }}" type="button"
+                            role="tab" aria-controls="positives-pills-{{ $category->id }}" aria-selected="{{ $key == 0 ? 'true' : 'false' }}">
+                        {{ $category->name }}
+                    </button>
+                @endforeach
             </div>
-        </div>
-        <div class="g-col-12 g-col-sm-6 g-col-xl-4" data-aos="fade-right" data-aos-delay="200">
-            <div class="features__box rounded-16px card-shadow-hover rounded-24px transition-300ms h-100 d-flex flex-column align-items-center align-items-xl-start justify-content-center">
-                <img class="img-fluid" src="{{asset('./main/assets/imgs/features-box-2.webp')}}" alt="features-box-1" width="366" height="197"/>
-                <div class="p-25">
-                    <p class="fw-medium fs-18px mb-10 text-center text-xl-start">
-                        Excellent payment method
-                    </p>
-                    <p class="fs-14px mb-0 text-center text-xl-start">
-                        Through konin pay , you can easily control your financial
-                        resources.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="g-col-12 g-col-sm-6 g-col-xl-4" data-aos="fade-right" data-aos-delay="300">
-            <div class="features__box rounded-16px card-shadow-hover rounded-24px transition-300ms h-100 d-flex flex-column align-items-center align-items-xl-start justify-content-center">
-                <img class="img-fluid" src="{{asset('./main/assets/imgs/features-box-3.webp')}}" alt="features-box-1" width="366" height="197"/>
-                <div class="p-25">
-                    <p class="fw-medium fs-18px mb-10 text-center text-xl-start">
-                        Control everything
-                    </p>
-                    <p class="fs-14px mb-0 text-center text-xl-start">
-                        We gave you a tight dashboard that controls everything
-                    </p>
-                </div>
+            <div class="positives__navTabs-content tab-content flex-grow-1" id="positives-pills-tabContent">
+                @foreach($template as $key => $category)
+                    <div class="tab-pane fade {{ $key == 0 ? 'show active' : '' }}"
+                         id="positives-pills-{{ $category->id }}" role="tabpanel"
+                         aria-labelledby="positives-pills-{{ $category->id }}-tab" tabindex="0">
+                        <img class="img-fluid rounded-16px"
+                             src="{{ \Illuminate\Support\Facades\Storage::url($category->image) }}" alt="{{ $category->name }}-img" width="929" height="501" />
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

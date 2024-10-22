@@ -4,7 +4,7 @@
 <head>
     <!-- Required meta tags -->
     @include('main.partials.meta')
-    <!-- Title & Favicon -->
+    <!-- Title -->
     <title>Konin store | كونين ستور</title>
     <!-- CSS -->
     @include('main.partials.css')

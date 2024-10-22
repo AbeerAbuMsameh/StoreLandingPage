@@ -1,4 +1,4 @@
-@props(['title', 'subtitle', 'link','buttonText','image', 'image_alt','button_name'])
+@props(['title', 'subtitle', 'link','image', 'image_alt','button_name'])
 
 <header class="header min-vh-100">
     <div class="headerDiv container containerEdit">
@@ -11,7 +11,7 @@
         <div class="d-flex justify-content-center">
             <a href="{{ $link }}" type="button"
                class="primaryBtnHoverEffect transition-300ms text-decoration-none btn btn-primary text-capitalize m-0 py-15 px-25 mt-32 mb-50 rounded-8px">
-                {{ $buttonText }}
+                {{ $button_name }}
             </a>
         </div>
 

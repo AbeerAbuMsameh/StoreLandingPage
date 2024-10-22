@@ -1,30 +1,41 @@
-@props(['title', 'description', 'icons'])
+@props(['title', 'description', 'image', 'image_alt', 'icons'])
 
-<section class="best container containerEdit mt-70 mt-md-130">
-    <p class="fw-medium fs-60px mb-15 text-center" data-aos="fade-up">
-        {{$title}}
-    </p>
-    <p class="mb-50 text-center positives__subTitle mx-auto" data-aos="fade-up">
-        {{$description}}
-    </p>
-    <div class="grid column-gap-sm-45px row-gap-sm-36px" data-aos="fade-up">
-        @foreach($icons as $icon)
-        <div class="g-col-12 g-col-md-6 g-col-xxl-4">
-            <div
-                class="features__box card-shadow-hover borderHoverEffect rounded-24px transition-300ms h-100 px-32 py-25 bg-f9 d-flex flex-column justify-content-center align-items-center align-items-xxl-start justify-content-center py-md-50 px-md-40">
-                <div
-                    class="features__boxSvg positives__boxSvg bg-primary bg-opacity-10 rounded-16px mb-15 d-flex justify-content-center align-items-center">
-                    <img class="svgPath" src="{{$icon->image }}" alt="icon" width="28" height="28"/>
-
+<section class="best bg-f9 py-70">
+    <div class="container containerEdit">
+        <h2 class="fw-medium fs-40px mb-15 text-center" data-aos="fade-up">       {{ $title }}</h2>
+        <h3 class="fs-18px fw-normal lh-lg opacity-80 mb-50 text-center reports__subTitle mx-auto" data-aos="fade-up"
+            data-aos-delay="200">
+            {{ $description }}
+        </h3>
+        <div class="grid">
+            @php
+                $half = ceil($icons->count() / 2);
+            @endphp
+            <div class="grid g-col-12 g-col-xxl-4 gap-10" data-aos="fade-up">
+                @foreach($icons->slice(0, $half) as $icon)
+                <div class="g-col-12 g-col-md-4 g-col-xxl-12 features__box card-shadow-hover borderHoverEffect rounded-24px transition-300ms p-20">
+                    <div class="features__boxSvg mx-auto mx-xxl-0 positives__boxSvg bg-primary bg-opacity-10 rounded-16px mb-15 d-flex justify-content-center align-items-center">
+                        <img src="{{ \Illuminate\Support\Facades\Storage::url($icon->image) }}" width="24" height="24" alt="false-icon"/>
+                    </div>
+                    <p class="fw-medium fs-20px mb-10 text-center text-xxl-start">{{ $icon->title }}</p>
+                    <p class="mb-0 fs-14px text-center text-xxl-start">{{ $icon->description }}</p>
                 </div>
-                <p class="fw-medium fs-20px mb-10 text-center text-xxl-start">
-                    {{$icon->title}}
-                </p>
-                <p class="mb-0 fs-14px text-center text-xxl-start">
-                    {{$icon->description}}
-                </p>
+                @endforeach
+            </div>
+            <div class="g-col-12 g-col-xxl-4 d-flex justify-content-center align-items-center" data-aos="fade-up">
+                <img class="img-fluid" src="{{$image}}" alt="{{$image_alt}}"/>
+            </div>
+            <div class="grid g-col-12 g-col-xxl-4 gap-10" data-aos="fade-up">
+                @foreach($icons->slice($half) as $icon)
+                <div class="g-col-12 g-col-md-4 g-col-xxl-12 features__box card-shadow-hover borderHoverEffect rounded-24px transition-300ms p-20">
+                    <div class="features__boxSvg mx-auto mx-xxl-0 positives__boxSvg bg-primary bg-opacity-10 rounded-16px mb-15 d-flex justify-content-center align-items-center">
+                        <img src="{{ \Illuminate\Support\Facades\Storage::url($icon->image) }}" width="24" height="24" alt="false-icon"/>
+                    </div>
+                    <p class="fw-medium fs-20px mb-10 text-center text-xxl-start">{{ $icon->title }}</p>
+                    <p class="mb-0 fs-14px text-center text-xxl-start">{{ $icon->description }}</p>
+                </div>
+                @endforeach
             </div>
         </div>
-        @endforeach
     </div>
 </section>

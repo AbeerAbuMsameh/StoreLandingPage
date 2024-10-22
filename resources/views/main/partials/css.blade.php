@@ -1,7 +1,7 @@
 <link
     rel="shortcut icon"
     type="image/x-icon"
-    href= {{asset('./main/assets/imgs/favicon.svg')}}
+    href= {{\Illuminate\Support\Facades\Storage::url($setting->favicon)}}
 />
 
 @if(app()->getLocale() == 'ar' || app()->getLocale() == 'ku')

@@ -38,12 +38,7 @@ class TemplateCategory extends Model
         'appear_on_home' => "integer",
         'status' => "integer",
     ];
-    public function image(): Attribute
-    {
-        return new Attribute(
-            get: fn($value) => Storage::url($value),
-        );
-    }
+
     public function templates()
     {
         return $this->hasMany(Template::class, 'template_category_id');
