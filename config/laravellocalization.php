@@ -244,7 +244,7 @@ return [
         //'pa-Arab'     => ['name' => 'Punjabi (Arabic)',       'script' => 'Arab', 'native' => 'پنجاب', 'regional' => 'pa_IN'],
         //'ps'          => ['name' => 'Pashto',                 'script' => 'Arab', 'native' => 'پښتو', 'regional' => 'ps_AF'],
         //'ks'          => ['name' => 'Kashmiri (Arabic)',      'script' => 'Arab', 'native' => 'کأشُر', 'regional' => 'ks_IN'],
-        //'ku'          => ['name' => 'Kurdish',                'script' => 'Arab', 'native' => 'کوردی', 'regional' => 'ku_TR'],
+        'ku'          => ['name' => 'Kurdish',                'script' => 'Arab', 'native' => 'کوردی', 'regional' => 'ku_TR'],
         //'dv'          => ['name' => 'Divehi',                 'script' => 'Thaa', 'native' => 'ދިވެހިބަސް', 'regional' => 'dv_MV'],
         //'ks-Deva'     => ['name' => 'Kashmiri (Devaganari)',  'script' => 'Deva', 'native' => 'कॉशुर', 'regional' => 'ks_IN'],
         //'kok'         => ['name' => 'Konkani',                'script' => 'Deva', 'native' => 'कोंकणी', 'regional' => 'kok_IN'],

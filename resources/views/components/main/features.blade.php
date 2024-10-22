@@ -11,8 +11,8 @@
         @foreach ($features as $feature)
             <x-main.feature-box
                 :icon="isset($feature['image']) ? Storage::url($feature['image']) : null"
-                :title="__($feature['title'] ?? 'Default Title')"
-                :description="__($feature['description'] ?? 'Default Description')"
+                :title="__($feature['title'] ?? '')"
+                :description="__($feature['description'] ?? '')"
             />
         @endforeach
     </div>

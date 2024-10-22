@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Language;
 use App\Models\Menu;
 use App\Models\Setting;
 use Illuminate\Support\Facades\View;
@@ -23,8 +24,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $setting = Setting::first();
+        $languages = Language::where('status', 1)->get();
         $menus = Menu::with('page')->where('position','footer')->where('status',1)->get();
         View::share('setting', $setting);
         View::share('menus' ,$menus);
+        View::share('languages' ,$languages);
     }
 }

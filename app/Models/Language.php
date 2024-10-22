@@ -35,12 +35,6 @@ class Language extends Model
         'status' => 'integer',
     ];
 
-    public function flag() : Attribute
-    {
-        return new Attribute(
-            get:fn($value) => Storage::url($value),
-        );
-    }
 
 
 //    public function defaultCurrency() : Attribute {
