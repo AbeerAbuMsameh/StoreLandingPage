@@ -25,9 +25,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $setting = Setting::first();
         $languages = Language::where('status', 1)->get();
-        $menus = Menu::with('page')->where('position','footer')->where('status',1)->get();
         View::share('setting', $setting);
-        View::share('menus' ,$menus);
         View::share('languages' ,$languages);
     }
 }

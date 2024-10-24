@@ -12,7 +12,7 @@
 </head>
 <body>
 <!-- Navigation -->
-@include('main.partials.nav')
+@yield('navigation')
 
 <!-- Main Content -->
 <main class="mainContent">

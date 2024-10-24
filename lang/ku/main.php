@@ -88,7 +88,7 @@ return
         'email' => 'ئیمەیڵ ',
         'phone_number' => 'ژمارەی مۆبایل ',
         'message' => 'نامە ',
-        'you_agree_to_our_friendly' => ' تۆ ڕازیت بە دۆستانەمان ',
+        'i_agree_to_our_friendly' => ' تۆ ڕازیت بە دۆستانەمان ',
         'privacy_policy' => ' سیاسەتی پاراستنی نهێنی',
         'send_message' => ' نامە ناردن ',
         'find_the_plan_that_right_for_you' => ' ئەو پلانە بدۆزەرەوە کە بۆ تۆ گونجاوە ',

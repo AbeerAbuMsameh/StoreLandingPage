@@ -84,7 +84,7 @@ return
         'email' => 'البريد الإلكتروني',
         'phone_number' => 'رقم الهاتف',
         'message' => 'الرسالة',
-        'you_agree_to_our_friendly' => 'أنت توافق على سياسة الخصوصية الودية لدينا',
+        'i_agree_to_our_friendly' => 'أوافق على سياسة الخصوصية الودية لدينا',
         'privacy_policy' => 'سياسة الخصوصية',
         'send_message' => 'إرسال الرسالة',
         'find_the_plan_that_right_for_you' => 'ابحث عن الخطة التي تناسبك',

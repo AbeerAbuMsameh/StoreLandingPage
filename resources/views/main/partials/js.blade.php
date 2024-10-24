@@ -31,6 +31,9 @@
     })
 
     window.addEventListener('scroll', function () {
+        const homeLogo = document.querySelector('.navbar-logo-home')
+        const pagesLogo = document.querySelector('.navbar-logo-pages')
+
         const navbarLinks = document.querySelectorAll(
             '.navbar-nav .mainNavbar__menuLink',
         )
@@ -43,6 +46,8 @@
 
         navbarLinks.forEach((link) => {
             if (window.scrollY > 10) {
+                homeLogo.style.display = 'none'
+                pagesLogo.style.display = 'block'
                 link.style.color = '#000'
                 link.classList.remove('text-white')
                 logInBtn.style.color = '#000'
@@ -50,6 +55,8 @@
                 langSwich.style.color = '#000'
                 langSwich.classList.remove('text-white')
             } else {
+                homeLogo.style.display = 'block'
+                pagesLogo.style.display = 'none'
                 link.classList.add('text-white')
                 logInBtn.classList.add('text-white')
                 langSwich.classList.add('text-white')

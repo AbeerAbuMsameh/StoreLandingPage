@@ -87,13 +87,15 @@ return
         'here' => 'here',
         'get_in_touch' => 'Get in touch',
         'we_love_to_hear_from_you_Please_fill_out_this_form' => 'We’d love to hear from you. Please fill out this form.',
+        'contact_information' => 'Contact Information',
+        'say_something_to_start_live_chat' => 'Say something to start a live chat!',
         'subject' => 'Subject',
         'this_field_is_required' => 'This field is required',
         'last_name' => 'Last name',
         'email' => 'Email',
         'phone_number' => 'Phone number',
         'message' => 'Message',
-        'you_agree_to_our_friendly' => 'You agree to our friendly',
+        'i_agree_to_our_friendly' => 'I agree to our friendly',
         'privacy_policy' => 'privacy policy',
         'send_message' => 'Send message',
         'find_the_plan_that_right_for_you' => 'Find the plan that’s right for you',
@@ -175,5 +177,18 @@ return
         'privacy-policy'=>'Privacy Policy',
         'terms-and-conditions'=>'Terms And Conditions',
         'and'=>'And',
+        'back_home'=>'Go back to Home page',
+        'personal_information'=>'Personal information',
+        'business_information'=>'Verification',
+        'verification'=>'Business information',
+        'choose_template'=>'Choose the template',
+        'choose_template_meets_needs'=>' Choose the template that meets your needs',
+        'enter_verification_code'=>'Enter the verification code',
+        'enter_personal_information'=>'Enter your personal information',
+        'enter_business_information'=>'Enter your Business information',
+        'koninpay_countries_description'=>'Koninpay is an electronic payment service provider that offers a
+                comprehensive solution to meet your online financial needs. We strive
+                to provide safe and convenient payment solutions and improve the user
+                experience in digital banking operations.',
 
     ];

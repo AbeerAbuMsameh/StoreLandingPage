@@ -1,5 +1,9 @@
 @extends('main.layouts.master')
 
+@section('navigation')
+    @include('main.partials.nav')
+@endsection
+
 @push('style')
     @if(app()->getLocale() == 'ar' || app()->getLocale() == 'ku')
         <!-- Index page css arabic -->
@@ -17,7 +21,7 @@
                 title="{{ __($section->title ?? null) }}"
                 subtitle="{{ __($section->description  ?? null) }}"
                 link="{{ __($section->link  ?? null) }}"
-                image="{{ app()->getLocale() == 'ar' || app()->getLocale() == 'ku' ? Storage::url($section->image_ltr) : Storage::url($section->image_rtl) }}"
+                image="{{ app()->getLocale() == 'ar' || app()->getLocale() == 'ku' ? Storage::url($section->image_rtl) : Storage::url($section->image_ltr) }}"
                 image_alt="{{ __($section->image_alt) }}"
                 button_name="{{ __($section->button_name  ?? null) }}"
             />
@@ -37,7 +41,7 @@
             <x-main.reports-section
                 title="{{ __($section->title) }}"
                 description="{{ __($section->description)}}"
-                image="{{ app()->getLocale() == 'ar' || app()->getLocale() == 'ku' ? Storage::url($section->image_ltr) : Storage::url($section->image_rtl) }}"
+                image="{{ app()->getLocale() == 'ar' || app()->getLocale() == 'ku' ? Storage::url($section->image_rtl) : Storage::url($section->image_ltr) }}"
                 image_alt="{{ $section->image_alt }}"
                 :icons="$section->icons ?? [] "
             />
@@ -52,7 +56,7 @@
             <x-main.payment-section
                 title="{{ __($section->title?? null) }}"
                 description="{{ __($section->description?? null)}}"
-                image="{{ app()->getLocale() == 'ar' || app()->getLocale() == 'ku' ? Storage::url($section->image_ltr) : Storage::url($section->image_rtl) }}"
+                image="{{ app()->getLocale() == 'ar' || app()->getLocale() == 'ku' ? Storage::url($section->image_rtl) : Storage::url($section->image_ltr) }}"
                 image_alt="{{ $section->image_alt }}"
                 :icons="$section->icons ?? [] "
                 />
@@ -61,7 +65,7 @@
             <x-main.best-section
                 title="{{ __($section->title ?? null) }}"
                 description="{{ __($section->description ?? null)}}"
-                image="{{ app()->getLocale() == 'ar' || app()->getLocale() == 'ku' ? Storage::url($section->image_ltr) : Storage::url($section->image_rtl) }}"
+                image="{{ app()->getLocale() == 'ar' || app()->getLocale() == 'ku' ? Storage::url($section->image_rtl) : Storage::url($section->image_ltr) }}"
                 image_alt="{{ $section->image_alt }}"
                 :icons="$section->icons"
             />

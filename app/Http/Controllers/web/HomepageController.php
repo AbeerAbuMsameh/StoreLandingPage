@@ -11,6 +11,8 @@ use App\Models\Language;
 use App\Models\PackageFeature;
 use App\Models\Packages\Package;
 use App\Models\Packages\PackageCategory;
+use App\Models\Packages\PaidPackageDuration;
+use App\Models\PackageView;
 use App\Models\Page;
 use App\Models\Setting;
 use App\Models\SuccessPartner;
@@ -49,85 +51,30 @@ class HomepageController extends Controller
         $faqs_odd = FAQ::where('status', 1)->whereRaw('MOD(id, 2) != 0')->get();
         $faqs_even = FAQ::where('status', 1)->whereRaw('MOD(id, 2) = 0')->get();
 
-        return view('main.faq', compact('section9', 'faqs_odd', 'faqs_even'));
-    }
-
-    public function help(Request $request)
-    {
-
-        $helps = Help::with(['childrens' => function ($query) {
-            $query->orderBy('sort', 'asc');
-        }])
-            ->where('status', 1)
-            ->where('parent_id', null)
-            ->whereHas('childrens')
-            ->get();
-
-        $helps2 = Help::with(['childrens' => function ($query) {
-            $query->orderBy('sort', 'asc');
-        }])
-            ->where('status', 1)
-            ->whereDoesntHave('parent')
-            ->whereDoesntHave('childrens')
-            ->get();
-
-
-        return view('main.setting-up-store', compact('helps', 'helps2'));
-    }
-
-    public function setting_store_info(Request $request, $id)
-    {
-
-        $helps = Help::with(['childrens' => function ($query) {
-            $query->orderBy('sort', 'asc');
-        }])
-            ->where('status', 1)
-            ->where('parent_id', null)
-            ->whereHas('childrens')
-            ->get();
-
-        $helps2 = Help::with(['childrens' => function ($query) {
-            $query->orderBy('sort', 'asc');
-        }])
-            ->where('status', 1)
-            ->whereDoesntHave('parent')
-            ->whereDoesntHave('childrens')
-            ->get();
-
-
-        $main_help = Help::with(['media' => function ($query) {
-            $query->where('lang_code', App::getLocale());
-        }])->findOrFail($id);
-
-        return view('main.setting-up-store-info', compact('helps', 'helps2', 'main_help'));
+        return view('main.pages.faq', compact('section9', 'faqs_odd', 'faqs_even'));
     }
 
     public function page($slug)
     {
-        $page = Page::whereRaw("JSON_UNQUOTE(JSON_EXTRACT(slug, '$.*')) REGEXP ?", [$slug])
-            ->first();
+        $page = Page::where('page_type', 'privacy')->first();
 
-        return view('main.show', ['page' => $page]);
+
+        if ($page == null) {
+            return errors_response(false, __('customer.not-found'), [], 404);
+        }
+
+        return view('main.pages.privacy-policy', compact('page'));
+
     }
 
-    public function contact(Request $request)
+    public function help(Request $request)
     {
         $ip = $request->ip();
         $currentUserInfo = Location::get($ip);
 
-        $country_code = $currentUserInfo->countryCode ?? 'Unknown';
+        $country_code = $currentUserInfo->countryCode ?? 'US' ;
 
-        return view('main.contact-us', compact('country_code'));
-    }
-
-    public function countries(Request $request)
-    {
-        $ip = $request->ip();
-        $currentUserInfo = Location::get($ip);
-
-        $country_code = $currentUserInfo->countryCode ?? 'Unknown';
-
-        return view('main.contact-us', compact('country_code'));
+        return view('main.pages.help', compact('country_code'));
     }
 
     public function store_contact(Request $request)
@@ -135,27 +82,37 @@ class HomepageController extends Controller
         $ip = $request->ip();
         $currentUserInfo = Location::get($ip);
 
-        $city = $currentUserInfo->cityName ?? 'Unknown';
-        $country = $currentUserInfo->countryName ?? 'Unknown';
+        $city = $currentUserInfo->cityName ?? '';
+        $country = $currentUserInfo->countryName ?? '';
 
         $validator = Validator($request->all(), [
-            'name' => 'required|string',
-            'email' => 'required|email',
-            'subject' => 'nullable|string',
-            'phone' => 'required|string',
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'required|string|max:15',
+            'subject' => 'required|string|max:255',
             'message' => 'required|string',
+            'terms' => 'required|accepted',
+            'country_code' => 'required|string',
+            'country' => 'required|string',
         ]);
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator);
 
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
         $data = $validator->validate();
         $data['city'] = $city;
-        $data['country'] = $country;
+        unset($data['terms']);
         $this->repository->create($data);
-        return response()->json(['message' => __('main.contact-create')]);
+        return redirect()->back()->with('success', __('Your message has been sent!'));
 
+    }
+
+    public function countries(Request $request)
+    {
+        $countries = Country::where('status' ,1 )->get();
+
+        return view('main.pages.countries', compact('countries'));
     }
 
     public function getTemplates()
@@ -165,99 +122,45 @@ class HomepageController extends Controller
             ->orderBy('sort')
             ->get();
 
-        return main_response(true,__('main.templates'),$templateCategories,200);
-    }
-
-    public function getLanguages()
-    {
-        $languages = Language::select('id','lang','flag','is_rtl')->get();
-
-        return main_response(true,__('main.languages'),$languages,200);
+        return view('main.pages.templates',compact('templateCategories'));
     }
 
     public function pricing(Request $request)
     {
-
         $ipAddress = $request->ip();
+        // Simulate IP address for testing
+        $ipAddress = '213.149.10.10';
         $currentUserInfo = Location::get($ipAddress);
 
-        $countryCode = $currentUserInfo->countryCode ?? 'Unknown';
-
-        $countryCode = 'IQ';
+        // Assume 'LB' is a default country code for testing
+        $countryCode = 'LB';
 
         if ($countryCode == null) {
-            return errors_response(__('false'), __('customer.county-not-found'), [], 400);
+            return response()->json([
+                'success' => false,
+                'message' => __('Country Not Found'),
+            ], 400);
         }
 
-        $country_id = Country::where('iso2', $countryCode)->where('iso3', $countryCode)->pluck('id')->first();
+        // Retrieve country ID based on the country code
+        $country_id = Country::where('iso2', $countryCode)
+            ->orWhere('iso3', $countryCode)
+            ->pluck('id')
+            ->first();
+
         if ($country_id) {
-            $packageCategories = PackageCategory::with([
-                'freePackages' => function ($query) use ($country_id) {
-                    $query->where('country_id', $country_id);
-                },
-                'paidPackages' => function ($query) use ($country_id) {
-                    $query->where('country_id', $country_id)->where('status', 1);
-                },
-                'freePackages.package.packageFeatures',
-                'paidPackages.package.packageFeatures'
-            ])
+            $packageCategories = PackageView::with(['category','features'])->where('country_id', $country_id)
+                ->where('status', 1)
+                ->get();
+            $features = PackageFeature::where('status', 1)
                 ->get();
 
-            $PackageDurations = [];
-
-            if ($packageCategories) {
-                foreach ($packageCategories as $packageCategory) {
-                    foreach ($packageCategory->paidPackages as $paidPackage) {
-                        if ($paidPackage->package && $paidPackage->package->packageFeatures) {
-                            $packageFeatureTitles = PackageFeature::whereIn('id', $paidPackage->package->packageFeatures->pluck('package_feature_id'))->pluck('title');
-                            $paidPackage->type = 'paid';
-                            $paidPackage->packageFeatureTitles = $packageFeatureTitles;
-                        }
-
-                        $paidPackageDurations = $paidPackage->durations;
-
-                        if ($paidPackageDurations) {
-                            foreach ($paidPackageDurations as $paidPackageDuration) {
-                                if ($paidPackageDuration->status === 1 && $paidPackageDuration->package_category_id === $paidPackage->package_category_id) {
-                                    $discountedPrice = $paidPackage->monthly_price;
-
-                                    if ($paidPackageDuration->discount === 'percentage' || $paidPackageDuration->discount === 'both') {
-                                        $discountedPrice *= (1 - $paidPackageDuration->discount_rate / 100);
-                                    }
-
-                                    if ($paidPackage->package && $paidPackage->package->packageFeatures) {
-                                        $packageFeatureTitlesDuration = PackageFeature::whereIn('id', $paidPackage->package->packageFeatures->pluck('package_feature_id'))->pluck('title');
-                                        $paidPackageDuration->packageFeatureTitles = $packageFeatureTitlesDuration;
-                                    }
-
-                                    $PackageDurations[] = [
-                                        'id' => $paidPackageDuration->id,
-                                        'package_category_id' => $paidPackageDuration->package_category_id,
-                                        'name' => $paidPackage->package->name ?? null,
-                                        'price' => $discountedPrice,
-                                        'discount' => $paidPackageDuration->discount,
-                                        'color' => $paidPackage->package->color ?? null,
-                                        'package_features' => $paidPackageDuration->packageFeatureTitles ?? [],
-                                        'type' => 'paid_duration',
-                                    ];
-                                }
-                            }
-                        }
-                    }
-                    foreach ($packageCategory->freePackages as $freePackage) {
-                        if ($freePackage->package && $freePackage->package->packageFeatures) {
-                            $packageFeatureTitles = PackageFeature::whereIn('id', $freePackage->package->packageFeatures->pluck('package_feature_id'))->pluck('title');
-                            $freePackage->type = 'free';
-                            $freePackage->packageFeatureTitles = $packageFeatureTitles;
-                        }
-                    }
-                }
-            }
-
-            return view('main.pages.pricing', compact('packageCategories' , 'PackageDurations'));
+            return view('main.pages.pricing', compact('packageCategories','features'));
         } else {
-            return errors_response(__('false'), __('Your Country Not Supported'), [], 400);
-
+            return response()->json([
+                'success' => false,
+                'message' => __('Your Country Not Supported'),
+            ], 400);
         }
     }
 
