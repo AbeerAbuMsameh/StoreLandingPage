@@ -9,7 +9,7 @@
             {{ $subtitle }}
         </p>
         <div class="d-flex justify-content-center">
-            <a href="{{ $link }}" type="button"
+            <a href="{{ route('main.create-store') }}" type="button"
                class="primaryBtnHoverEffect transition-300ms text-decoration-none btn btn-primary text-capitalize m-0 py-15 px-25 mt-32 mb-50 rounded-8px">
                 {{ $button_name }}
             </a>

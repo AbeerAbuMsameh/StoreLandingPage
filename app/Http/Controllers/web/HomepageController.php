@@ -149,9 +149,13 @@ class HomepageController extends Controller
             ->first();
 
         if ($country_id) {
-            $packageCategories = PackageView::with(['category','features'])->where('country_id', $country_id)
+
+            $packageCategories = PackageView::with(['category','features'])
+                ->where('country_id', $country_id)
                 ->where('status', 1)
-                ->get();
+                ->get()
+                ->groupBy('category.name');
+
             $features = PackageFeature::where('status', 1)
                 ->get();
 

@@ -26,59 +26,71 @@
                 </p>
             </div>
             <div class="container containerEdit" data-aos="fade-up" data-aos-delay="200">
-                <ul class="nav nav-pills bg-primary bg-opacity-15 align-items-stretch navPricePills border border-primary border-1 p-5 justify-content-center mx-auto mb-50" id="pricePills-tab" role="tablist">
-                    @foreach ($packageCategories as $index => $category)
+
+                <ul class="nav nav-pills bg-primary bg-opacity-15 align-items-stretch navPricePills border border-primary border-1 p-5 justify-content-center mx-auto mb-50"
+                    id="pricePills-tab" role="tablist">
+                    @foreach($packageCategories as $categoryName => $packages)
                         <li class="nav-item navPricePills__list flex-grow-1" role="presentation">
-                            <button class="fw-semibold text-primary border-0 navPricePills__list--btn nav-link h-100 w-100 d-flex flex-column flex-sm-row align-items-center justify-content-center gap-5 {{ $index === 0 ? 'active' : '' }}"
-                                    id="pricePills-{{ $category->category->id }}-tab"
-                                    data-bs-toggle="pill"
-                                    data-bs-target="#pricePills-{{ $category->category->id }}"
-                                    type="button"
-                                    role="tab"
-                                    aria-controls="pricePills-{{ $category->category->id }}"
-                                    aria-selected="{{ $index === 0 ? 'true' : 'false' }}">
-                                {{ $category->category->name }}
+                            <button
+                                class="fw-semibold text-primary border-0 navPricePills__list--btn nav-link h-100 w-100 d-flex flex-column flex-sm-row align-items-center justify-content-center gap-5 {{ $loop->first ? 'active' : '' }}"
+                                id="pricePills-{{ strtolower($categoryName) }}-tab" data-bs-toggle="pill"
+                                data-bs-target="#pricePills-{{ strtolower($categoryName) }}" type="button" role="tab"
+                                aria-controls="pricePills-{{ strtolower($categoryName) }}"
+                                aria-selected="{{ $loop->first ? 'true' : 'false' }}">
+                                {{ $categoryName }}
                             </button>
                         </li>
                     @endforeach
                 </ul>
                 <div class="tab-content" id="pricePills-tabContent">
-                    @foreach ($packageCategories as $index => $category)
-                        <div class="tab-pane fade {{ $index === 0 ? 'show active' : '' }}" id="pricePills-{{ $category->category->id }}" role="tabpanel" aria-labelledby="pricePills-{{ $category->category->id }}-tab" tabindex="0">
+                    @foreach($packageCategories as $categoryName => $packages)
+                        <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="pricePills-{{ strtolower($categoryName) }}" role="tabpanel" aria-labelledby="pricePills-{{ strtolower($categoryName) }}">
                             <div class="table-responsive">
                                 <table class="table table-striped mb-0">
                                     <thead>
                                     <tr>
                                         <th scope="col"></th>
-                                        <th scope="col">{{ $category->name }}</th> <!-- Assuming package names are stored as JSON -->
+                                        @foreach($packages as $package)
+                                            <th scope="col">{{ $package->name }}</th>
+                                        @endforeach
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach ($features as $feature)
+                                    <!-- First Row: Price of Package -->
                                     <tr>
-                                        <th scope="row">{{ $feature->title }}</th>
-                                            <td>
-                                                @if ($category->features->contains('feature_key', $feature->feature_key))  <!-- Assuming feature_key is used to match features -->
-                                                Yes
-                                                @else
-                                                    No
-                                                @endif
-                                            </td>
+                                        <th scope="row">Price For month</th>
+                                        @foreach($packages as $package)
+                                            <td>{{ $package->paid_monthly_price ?? '00.00' }} $</td>
+                                        @endforeach
                                     </tr>
+                                    <!-- Feature Rows -->
+                                    @foreach($features as $feature)
+                                        <tr>
+                                            <th scope="row">{{ $feature->title }}</th>
+                                            @foreach($packages as $package)
+                                                @php
+                                                    $packageFeature = $package->features->where('title', $feature->title)->first();
+                                                    $value = $packageFeature ? $packageFeature->pivot->value : null;
+                                                @endphp
+                                                <td>
+                                                    @if($packageFeature)
+                                                        {{ $value ?? 'Unlimited' }}
+                                                    @else
+                                                        <img src="{{ asset('./main/assets/imgs/false-icon.svg') }}" width="24" height="24" alt="false-icon">
+                                                    @endif
+                                                </td>
+                                            @endforeach
+                                        </tr>
                                     @endforeach
                                     </tbody>
                                     <tfoot>
                                     <tr>
                                         <th scope="row"></th>
+                                        @foreach($packages as $package)
                                             <td>
-{{--                                                <a--}}
-{{--                                                    href="./create-store-1.html"--}}
-{{--                                                    type="button"--}}
-{{--                                                    class="pricePillsBox{{ $package->name }}__btn w-max-content primaryBtnHoverEffect transition-300ms fw-medium text-decoration-none fs-14px btn {{ $package->is_available ? 'btn-primary' : 'btn-outline-primary' }} m-0 py-8 px-9"--}}
-{{--                                                >--}}
-{{--                                                    {{ 'Get Started'  'Coming Soon' }}--}}
-{{--                                                </a>--}}
+                                                <a href="./create-store-1.html" type="button" class="btn btn-primary m-0 py-8 px-9">Get Started</a>
                                             </td>
+                                        @endforeach
                                     </tr>
                                     </tfoot>
                                 </table>
@@ -86,6 +98,8 @@
                         </div>
                     @endforeach
                 </div>
+
+
             </div>
         </section>
     </main>
