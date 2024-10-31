@@ -10,7 +10,7 @@
     @include('main.partials.css')
     @stack('style')
 </head>
-<body>
+<body @yield('bodyClass')>
 <!-- Navigation -->
 @yield('navigation')
 

@@ -4,6 +4,10 @@
     @include('main.partials.light-nav')
 @endsection
 
+@section('bodyClass')
+    class="bg-fbfbfc"
+@endsection
+
 @push('style')
     <!-- help page css arabic -->
     @if(app()->getLocale() == 'ar' || app()->getLocale() == 'ku')
@@ -133,7 +137,7 @@
                         required/>
                         <label class="form-check-label fs-16px fw-medium mt-4 cursor-pointer flex-shrink-0" for="createStoreFormOne-terms">
                             {{ __('main.i_agree_to_our_friendly')}}
-                            <a href="{{route('main.page.show', 'Privacy-Policy')}}" class="fw-normal text-body flex-shrink-0"> {{ __('main.privacy_policy') }}</a>.
+                            <a href="{{route('main.page.show.privacy-policy')}}" class="fw-normal text-body flex-shrink-0"> {{ __('main.privacy_policy') }}</a>.
                         </label>
                         <x-main.error name="terms"/>
                     </div>

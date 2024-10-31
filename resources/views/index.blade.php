@@ -60,7 +60,6 @@
                 image_alt="{{ $section->image_alt }}"
                 :icons="$section->icons ?? [] "
                 />
-
         @elseif($section->section->title == "section6")
             <x-main.best-section
                 title="{{ __($section->title ?? null) }}"

@@ -20,6 +20,7 @@ class Page extends Model
         'slug',
         'meta_title',
         'description',
+        'page_type',
         'meta_description',
         'style',
         'status',

@@ -54,7 +54,7 @@ class HomepageController extends Controller
         return view('main.pages.faq', compact('section9', 'faqs_odd', 'faqs_even'));
     }
 
-    public function page($slug)
+    public function privacyPage()
     {
         $page = Page::where('page_type', 'privacy')->first();
 
@@ -66,6 +66,19 @@ class HomepageController extends Controller
         return view('main.pages.privacy-policy', compact('page'));
 
     }
+    public function termsPage()
+    {
+        $page = Page::where('page_type', 'terms')->first();
+
+
+        if ($page == null) {
+            return errors_response(false, __('customer.not-found'), [], 404);
+        }
+
+        return view('main.pages.privacy-policy', compact('page'));
+
+    }
+
 
     public function help(Request $request)
     {

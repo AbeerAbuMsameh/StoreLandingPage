@@ -4,6 +4,10 @@
     @include('main.partials.light-nav')
 @endsection
 
+@section('bodyClass')
+    class="bg-fbfbfc"
+@endsection
+
 @push('style')
     @if(app()->getLocale() == 'ar' || app()->getLocale() == 'ku')
         <!-- pricing page css arabic -->

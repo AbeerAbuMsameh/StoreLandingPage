@@ -12,4 +12,8 @@ global $countries;
 
 // Vars..
 
+function translateToArabic(string $text)
+{
+    return 'عربي - ' . $text;
+}
 
